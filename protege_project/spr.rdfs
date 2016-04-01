@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rdf:RDF [
+	 <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	 <!ENTITY a 'http://protege.stanford.edu/system#'>
+	 <!ENTITY kb 'http://protege.stanford.edu/kb#'>
+	 <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+]>
+<rdf:RDF xmlns:rdf="&rdf;"
+	 xmlns:a="&a;"
+	 xmlns:kb="&kb;"
+	 xmlns:rdfs="&rdfs;">
+<rdfs:Class rdf:about="&kb;Case"
+	 rdfs:label="Case">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Client"
+	 rdfs:label="Client">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;CreditData"
+	 rdfs:label="CreditData">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Document"
+	 rdfs:label="Document">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Job"
+	 rdfs:label="Job">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Requirements"
+	 rdfs:label="Requirements">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&kb;age"
+	 a:maxCardinality="1"
+	 a:maxValue="120"
+	 a:minCardinality="1"
+	 a:minValue="0"
+	 a:range="integer"
+	 rdfs:label="age">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;client"
+	 a:maxCardinality="1"
+	 rdfs:label="client">
+	<rdfs:domain rdf:resource="&kb;Case"/>
+	<rdfs:range rdf:resource="&kb;Client"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;cond"
+	 a:allowedValues=">"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol"
+	 rdfs:label="cond">
+	<a:allowedValues xml:space='preserve'><![CDATA[<]]></a:allowedValues>
+	<rdfs:domain rdf:resource="&kb;Requirements"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>!=</a:allowedValues>
+	<a:allowedValues>=</a:allowedValues>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;condition"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="condition">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;credit"
+	 a:maxCardinality="1"
+	 rdfs:label="credit">
+	<rdfs:domain rdf:resource="&kb;Case"/>
+	<rdfs:range rdf:resource="&kb;CreditData"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;decision"
+	 a:allowedValues="undefined"
+	 a:defaultValues="undefined"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol"
+	 rdfs:label="decision">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>approved</a:allowedValues>
+	<a:allowedValues>failure</a:allowedValues>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;decisionSPR"
+	 a:allowedValues="undefined"
+	 a:maxCardinality="1"
+	 a:range="symbol"
+	 rdfs:label="decisionSPR">
+	<rdfs:domain rdf:resource="&kb;Case"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>approves</a:allowedValues>
+	<a:allowedValues>failure</a:allowedValues>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;document"
+	 a:maxCardinality="1"
+	 rdfs:label="document">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&kb;Document"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;expense"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:minValue="0"
+	 a:range="integer"
+	 rdfs:label="expense">
+	<rdfs:domain rdf:resource="&kb;CreditData"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;fullName"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="fullName">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;inBlackList"
+	 a:defaultValues="false"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="inBlackList">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;income"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:minValue="0"
+	 a:range="integer"
+	 rdfs:label="income">
+	<rdfs:domain rdf:resource="&kb;CreditData"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;job"
+	 a:maxCardinality="1"
+	 rdfs:label="job">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&kb;Job"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;kofIncome"
+	 a:maxCardinality="1"
+	 a:range="float"
+	 rdfs:label="kofIncome">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;minAge"
+	 a:maxCardinality="1"
+	 rdfs:label="minAge">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;minimumAge"
+	 a:maxCardinality="1"
+	 a:range="integer"
+	 rdfs:label="minimumAge">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;number"
+	 a:maxCardinality="1"
+	 a:maxValue="999999"
+	 a:minCardinality="1"
+	 a:minValue="1"
+	 a:range="integer"
+	 rdfs:label="number">
+	<rdfs:domain rdf:resource="&kb;Document"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;organization"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="organization">
+	<rdfs:domain rdf:resource="&kb;Job"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;phone"
+	 a:maxCardinality="1"
+	 rdfs:label="phone">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;position"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="position">
+	<rdfs:domain rdf:resource="&kb;Job"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;registration"
+	 a:defaultValues="true"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="registration">
+	<rdfs:domain rdf:resource="&kb;Client"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;req"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="req">
+	<rdfs:range rdf:resource="&kb;Requirements"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;salary"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:minValue="0"
+	 a:range="integer"
+	 rdfs:label="salary">
+	<rdfs:domain rdf:resource="&kb;Job"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;seria"
+	 a:maxCardinality="1"
+	 a:maxValue="9999"
+	 a:minValue="1"
+	 a:range="integer"
+	 rdfs:label="seria">
+	<rdfs:domain rdf:resource="&kb;Document"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;slot"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="slot">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;slotName"
+	 a:allowedValues="validDocument"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol"
+	 rdfs:label="slotName">
+	<rdfs:domain rdf:resource="&kb;Requirements"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>age</a:allowedValues>
+	<a:allowedValues>inBlackList</a:allowedValues>
+	<a:allowedValues>kof</a:allowedValues>
+	<a:allowedValues>registration</a:allowedValues>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;spr_Class24"
+	 a:maxCardinality="1"
+	 rdfs:label="spr_Class24">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;spr_Class9"
+	 a:maxCardinality="1"
+	 rdfs:label="spr_Class9">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;sum"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:minValue="1"
+	 a:range="integer"
+	 rdfs:label="sum">
+	<rdfs:domain rdf:resource="&kb;CreditData"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;term"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:minValue="1"
+	 a:range="integer"
+	 rdfs:label="term">
+	<rdfs:domain rdf:resource="&kb;CreditData"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;type"
+	 a:defaultValues="passport"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol"
+	 rdfs:label="type">
+	<rdfs:domain rdf:resource="&kb;Document"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>other</a:allowedValues>
+	<a:allowedValues>passport</a:allowedValues>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valBlack"
+	 a:maxCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="valBlack">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valBlackList"
+	 a:maxCardinality="1"
+	 rdfs:label="valBlackList">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valDocumentValid"
+	 a:maxCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="valDocumentValid">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valRegistration"
+	 a:maxCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="valRegistration">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valValid"
+	 a:maxCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="valValid">
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;valid"
+	 a:defaultValues="true"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="boolean"
+	 rdfs:label="valid">
+	<rdfs:domain rdf:resource="&kb;Document"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;value"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 rdfs:label="value">
+	<rdfs:domain rdf:resource="&kb;Requirements"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<a:OverridingProperty rdf:about="&a;Case_client"
+	 a:maxCardinality="1"
+	 a:minCardinality="1">
+	<a:domain rdf:resource="&kb;Case"/>
+	<rdfs:range rdf:resource="&kb;Client"/>
+	<a:overriddenProperty rdf:resource="&kb;client"/>
+</a:OverridingProperty>
+<a:OverridingProperty rdf:about="&a;Case_credit"
+	 a:maxCardinality="1"
+	 a:minCardinality="1">
+	<a:domain rdf:resource="&kb;Case"/>
+	<rdfs:range rdf:resource="&kb;CreditData"/>
+	<a:overriddenProperty rdf:resource="&kb;credit"/>
+</a:OverridingProperty>
+<a:OverridingProperty rdf:about="&a;Case_decisionSPR"
+	 a:allowedValues="undefined"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol">
+	<a:domain rdf:resource="&kb;Case"/>
+	<a:overriddenProperty rdf:resource="&kb;decisionSPR"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>approved</a:allowedValues>
+	<a:allowedValues>failure</a:allowedValues>
+</a:OverridingProperty>
+<a:OverridingProperty rdf:about="&a;Document_seria"
+	 a:maxCardinality="1"
+	 a:maxValue="9999"
+	 a:minCardinality="1"
+	 a:minValue="1"
+	 a:range="integer">
+	<a:domain rdf:resource="&kb;Document"/>
+	<a:overriddenProperty rdf:resource="&kb;seria"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</a:OverridingProperty>
+<a:OverridingProperty rdf:about="&a;Requirements_cond"
+	 a:maxCardinality="1"
+	 a:minCardinality="1"
+	 a:range="symbol">
+	<a:allowedValues xml:space='preserve'><![CDATA[<]]></a:allowedValues>
+	<a:allowedValues xml:space='preserve'><![CDATA[<=]]></a:allowedValues>
+	<a:domain rdf:resource="&kb;Requirements"/>
+	<a:overriddenProperty rdf:resource="&kb;cond"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+	<a:allowedValues>!=</a:allowedValues>
+	<a:allowedValues>=</a:allowedValues>
+	<a:allowedValues>></a:allowedValues>
+	<a:allowedValues>>=</a:allowedValues>
+</a:OverridingProperty>
+</rdf:RDF>
